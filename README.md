@@ -15,4 +15,4 @@ But its segmentation mask, while approximately correct, would benefit from impro
 The first step to improving Mask R-CNN's precision is to use transfer learning, beginning with its COCO trained weights, but subsequently training it on a small but carefully annotated set of images. 
 
 ## Step 2: Training a U-Net to refine small regions of proposed segmentation masks
-Once Mask R-CNN has been fine tuned for precise segmentation for a particular image class, the next step is to train a u-net for that class. This image takes a small region of the original image as input, along with the same small region of the segmentation mask, and produces a new prediction for the segmentation mask in that region. 
+Once Mask R-CNN has been fine tuned for precise segmentation for a particular image class, the next step is to train a u-net for that class. This u-net takes a small region of the original image as input, along with the same small region of the predicted segmentation mask, and produces a new prediction for the segmentation mask in that region. 
