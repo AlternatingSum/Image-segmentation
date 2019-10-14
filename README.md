@@ -19,6 +19,6 @@ Once Mask R-CNN has been fine tuned for precise segmentation for a particular im
 
 ![Regional U-Net](https://github.com/AlternatingSum/Image-segmentation/blob/master/static/Regional%20u-net.png?raw=true)
 
-To create this u-net I used (this)[https://github.com/karolzak/keras-unet/blob/master/keras_unet/models/custom_unet.py] open source implementation. The architecture is similar to that of ResNet 18, but with fewer channels, in my case: 
+To create this u-net I used [this](https://github.com/karolzak/keras-unet/blob/master/keras_unet/models/custom_unet.py) open source implementation. The architecture is similar to that of ResNet 18, but with fewer channels, in my case: 
 
 ![U-Net architecture](https://github.com/AlternatingSum/Image-segmentation/blob/master/static/U-net%20diagram.png?raw=true)
