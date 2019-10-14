@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 """
 Trains a U-Net to predict masks in subregions of an image with an initial predicted mask
-
-@author: tova
 """
 import os
 import Masked_Image as process
