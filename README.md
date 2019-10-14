@@ -1,4 +1,4 @@
-# Image segmentation: Improving precision with local U-Nets
+# Image segmentation: Regional U-Nets for improving precision
 This project uses u-nets to improve the precision of an existing instance segmentation model. 
 
 # State of the art - Mask R-CNN
