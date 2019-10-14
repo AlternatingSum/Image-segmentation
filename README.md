@@ -8,7 +8,7 @@ This project uses u-nets to improve the precision of an existing instance segmen
 
 # Approach
 ## Step 1: Fine tuning Mask R-CNN
-The first step to improving Mask R-CNN's precision was to use transfer learning, beginning with its COCO trained weights, but subsequently training it on a small but carefully annotated set of images. I used images of motorcycles from [Open Images](https://opensource.google/projects/open-images-dataset) datasat. Howeer, I only used images from its cross validation and test sets, because their masks are hand drawn and more accurate than those in the training set. 
+The first step to improving Mask R-CNN's precision was to use transfer learning, beginning with its COCO trained weights, but subsequently training it on a small but carefully annotated set of images. I used images of motorcycles from the [Open Images](https://opensource.google/projects/open-images-dataset) datasat. Howeer, I only used images from its cross validation and test sets, because their masks are hand drawn and more accurate than those in the training set. 
 
 This fine tuning resulted in an increase of mean IoU from 0.679 to 0.712 on my test set of 57 motorcycle images. (I began with a test set of 70 images, but Mask R-CNN only identified 57 of them as containing motorcycles, before fine tuning. I used this set of 57 throughout for consistency.)
 
