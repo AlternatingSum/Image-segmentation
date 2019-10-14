@@ -6,7 +6,7 @@ This project uses u-nets to improve the precision of an existing instance segmen
 
 ![Motorcycle mask](https://github.com/AlternatingSum/Image-segmentation/blob/master/static/First%20approximation.png?raw=true)
 
-# Approach: 
+# Approach
 ## Step 1: Fine tuning Mask R-CNN
 The first step to improving Mask R-CNN's precision was to use transfer learning, beginning with its COCO trained weights, but subsequently training it on a small but carefully annotated set of images. I used images of motorcycles from [Open Images](https://opensource.google/projects/open-images-dataset) datasat. Howeer, I only used images from its cross validation and test sets, because their masks are hand drawn and more accurate than those in the training set. 
 
