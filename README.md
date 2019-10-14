@@ -15,4 +15,10 @@ This fine tuning resulted in an increase of mean IoU from 0.679 to 0.712 on my t
 ![Fine tuning](https://github.com/AlternatingSum/Image-segmentation/blob/master/static/Progression%20fine%20tuned.png?raw=true)
 
 ## Step 2: Training a U-Net to refine small regions of proposed segmentation masks
-Once Mask R-CNN has been fine tuned for precise segmentation for a particular image class, the next step is to train a u-net for that class. This u-net takes a small region of the original image as input, along with the same small region of the predicted segmentation mask, and produces a new prediction for the segmentation mask in that region. 
+Once Mask R-CNN has been fine tuned for precise segmentation for a particular image class, the next step is to train a u-net for that class. This u-net takes a 64x64 region of the original image as input, along with the same small region of the predicted segmentation mask, and produces a new prediction for the segmentation mask in that region. 
+
+![Regional U-Net](https://github.com/AlternatingSum/Image-segmentation/blob/master/static/Regional%20u-net.png?raw=true)
+
+To create this u-net I used (this)[https://github.com/karolzak/keras-unet/blob/master/keras_unet/models/custom_unet.py] open source implementation. The architecture is similar to that of ResNet 18, but with fewer channels, in my case: 
+
+![U-Net architecture](https://github.com/AlternatingSum/Image-segmentation/blob/master/static/U-net%20diagram.png?raw=true)
