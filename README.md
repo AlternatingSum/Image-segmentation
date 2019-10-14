@@ -1,5 +1,5 @@
-# Image-segmentation
-The goal of this project is to create a model capable of segmenting an image with known bounding boxes, optimizing for high accuracy (measured as IoU).
+# Image segmentation: Improving precision via regional U-Nets
+This project uses u-nets to improve the precision of an existing instance segmentation model. 
 
 # State of the art - Mask R-CNN
 [Mask R-CNN](https://github.com/matterport/Mask_RCNN) is a state of the art model which creates segmentation masks for a variety of object classes, even in scenes with many objects. However, these masks are not always precise. For example, Mask R-CNN correctly identifies this as an image of a motorcycle, but its segmentation mask, while approximately correct, would benefit from improved precision: 
@@ -22,3 +22,10 @@ Once Mask R-CNN has been fine tuned for precise segmentation for a particular im
 To create this u-net I used [this](https://github.com/karolzak/keras-unet/blob/master/keras_unet/models/custom_unet.py) open source implementation. The architecture is similar to that of ResNet 18, but with fewer channels, in my case: 
 
 ![U-Net architecture](https://github.com/AlternatingSum/Image-segmentation/blob/master/static/U-net%20diagram.png?raw=true)
+
+After training the u-net, I refined each proposed mask by considering all 64x64 squares centered on the boundary of the mask, feeding them all to the u-net, and taking a weighted average of their predictions along with the predictions of the mask itself. 
+
+# Results
+The approach described above further improved the mean IoU on my test set, from 0.712 to 0.732. Here is a nice example of this increased precision: 
+
+![Post u-net](https://github.com/AlternatingSum/Image-segmentation/blob/master/static/After%20u-net.png?raw=true)
