@@ -10,10 +10,10 @@ import numpy as np
 import custom_unet as unet
 
 # Paths for the training set
-image_dir_train = "Train_CV_Test/train/Images/"
-predicted_dir_train = "Train_CV_Test/train/Predicted_Masks_Fine_Tuned/"
-float_dir_train = "Train_CV_Test/train/Float_Masks/"
-correct_dir_train = "Train_CV_Test/train/Masks/"
+image_dir_train = "../data/train/images/"
+predicted_dir_train = "../data/train/tuned_masks/"
+float_dir_train = "../data/train/float_masks/"
+correct_dir_train = "../data/train/masks/"
 
 # Chooses a random order for the training set, and finds its length
 train_list = os.listdir(float_dir_train)
@@ -23,10 +23,10 @@ num_train_images = len(train_list)
 
 
 # Paths for the validation set
-image_dir_val = "Train_CV_Test/val/Images/"
-predicted_dir_val = "Train_CV_Test/val/Predicted_Masks_Fine_Tuned/"
-float_dir_val = "Train_CV_Test/val/Float_Masks/"
-correct_dir_val = "Train_CV_Test/val/Masks/"
+image_dir_val = "../data/val/images/"
+predicted_dir_val = "../data/val/tuned_masks/"
+float_dir_val = "../data/val/float_masks/"
+correct_dir_val = "../data/val/masks/"
 
 # Chooses a random order for the validation set, and finds its length
 val_list = os.listdir(float_dir_val)
@@ -118,4 +118,4 @@ model.compile(optimizer='adam',
 model.fit(train_in, train_out, epochs=15)
 print(model.evaluate(val_in, val_out))
 
-model.save('unet_16filters_32_dist_float_15epochs.h5')
+model.save('new_unet.h5')
