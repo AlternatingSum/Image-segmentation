@@ -60,7 +60,6 @@ class Masked_Image:
         
     
     def add_padding(self, h_buffer, v_buffer):
-        
         """Adds padding to the image and its foreground mask."""
         
         # Padding the image
