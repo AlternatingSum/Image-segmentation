@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 """
 Uses a regional U-Net to refine a predicted segmentation mask
-
-@author: tova
 """
 
 from keras.models import load_model
