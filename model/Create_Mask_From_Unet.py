@@ -8,7 +8,7 @@ Uses a regional U-Net to refine a predicted segmentation mask
 
 from keras.models import load_model
 
-import Masked_image_motorcycle as process
+import Masked_Image as process
 import numpy as np
 import matplotlib.pyplot as plt
 import math
