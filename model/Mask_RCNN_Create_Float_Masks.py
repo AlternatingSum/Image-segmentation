@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 """
 This program runs Mask R-CNN's inference (after fine-tuning) on cropped images of motorcycles, 
 and produces probabilistic masks. 
