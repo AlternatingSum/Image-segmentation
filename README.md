@@ -32,6 +32,6 @@ After training the u-net, I refined each proposed mask by considering all 64x64 
 Note that this u-net is specific to the class of motorcycles. In generalizing this approach one should train a separate u-net for each class. 
 
 # Results
-The approach described above further improved the mean IoU on my test set, from 0.712 to 0.732. Here is a nice example of this increased precision: 
+The approach described above further improved the mean IoU on my test set, from 0.712 to 0.737. I used a test set of 57 images, and the IoU improved for 44 of them. Here is a nice example of this increased precision: 
 
-![Post u-net](https://github.com/AlternatingSum/Image-segmentation/blob/master/static/After%20u-net.png?raw=true)
+![Post u-net](https://github.com/AlternatingSum/Image-segmentation/blob/master/static/U-net%20results.png?raw=true)
