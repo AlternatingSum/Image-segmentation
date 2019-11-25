@@ -17,13 +17,18 @@ Licensed under the MIT License (see LICENSE for details)
 Written by Waleed Abdulla
 """
 
+import os
 import numpy as np
 from skimage import io
 import matplotlib.pyplot as plt
 import mrcnn.model as modellib
+from mrcnn import utils
 
 # Import COCO config
 from mrcnn import coco
+
+# URL from which to download the latest COCO trained weights
+COCO_MODEL_URL = "https://github.com/matterport/Mask_RCNN/releases/download/v2.0/mask_rcnn_coco.h5"
 
 class InferenceConfig(coco.CocoConfig):
     # Set batch size to 1 since we'll be running inference on
@@ -114,15 +119,22 @@ def mask_motorcycle(current_prefix):
     return found_motorcycle
 
 # Create model object in inference mode.
-model = modellib.MaskRCNN(mode="inference", model_dir="../data/model_weights/", config=config)
+model = modellib.MaskRCNN(mode="inference", model_dir="../data/model_weights/fine_tuned_model", config=config)
 
-# Local path to weights files
+# Local path to COCO weights
 COCO_MODEL_PATH = "../data/model_weights/mask_rcnn_coco.h5"
-FINE_TUNED_MODEL_PATH = "../data/model_weights/mask_rcnn_motorcycle_0003.h5"
+if not os.path.exists(COCO_MODEL_PATH):
+    utils.download_trained_weights(COCO_MODEL_PATH)
+weights_path = COCO_MODEL_PATH
 
-# Load fine tuned weights
-# Change FINE_TUNED_MODEL_PATH to COCO_MODEL_PATH to use coco weights instead
-model.load_weights(FINE_TUNED_MODEL_PATH, by_name=True)
+# Local path to fine tuned weights. 
+# To use fine-tuned weights first fine tune the model using Mask_rcnn_motorcycle_fine_tune.py, 
+# Then uncomment the following two lines. 
+#FINE_TUNED_MODEL_PATH = model.find_last()
+#weights_path = FINE_TUNED_MODEL_PATH
+
+# Load weights
+model.load_weights(weights_path, by_name=True)
 
 # COCO Class names
 # Index of the class in the list is its ID. For example, to get ID of
