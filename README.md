@@ -19,6 +19,10 @@ After fine tuning Mask R-CNN for precise segmentation on motorcycles, the next s
 
 ![Regional U-Net](https://github.com/AlternatingSum/Image-segmentation/blob/master/static/Regional%20u-net.png?raw=true)
 
+When Mask R-CNN predicts a mask this mask is boolean, assigning a 1 or a 0 to each pixel. However, it comes from rounding a mask of floats, which assigns a probability to each pixel. In order to give my u-net more data I used this mask of floats in the input, rather than the boolean mask. 
+
+![Regional U-Net with floats](https://github.com/AlternatingSum/Image-segmentation/blob/master/static/Unet%20input%20diagram.png?raw=true)
+
 To create this u-net I used [this](https://github.com/karolzak/keras-unet/blob/master/keras_unet/models/custom_unet.py) open source implementation. The architecture is similar to that of ResNet 18, but with fewer channels, in my case: 
 
 ![U-Net architecture](https://github.com/AlternatingSum/Image-segmentation/blob/master/static/U-net%20diagram.png?raw=true)
